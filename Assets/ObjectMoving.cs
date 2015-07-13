@@ -10,7 +10,7 @@ public class ObjectMoving : MonoBehaviour {
 		//ws://localhost:4567/socket.io/?EIO=4&transport=websocket
 		//GameObject go = GameObject.Find("SocketIO");
 		socket = GameObject.FindObjectOfType<SocketIOComponent>();
-		//socket.Connect ();
+		socket.Connect ();
 
 		socket.On("open", OnSocketOpen);
 		socket.On("error", OnSocketError);
@@ -37,8 +37,8 @@ public class ObjectMoving : MonoBehaviour {
 	}
 
 	public void LogMessage(string state, SocketIOEvent e) {
-		string datetime = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"); 
-		Debug.Log("[" + datetime + "][" + state + "][" + socket.sid + "]" + e.name + " " + e.data);
+		string datetime = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff"); 
+		Debug.Log("[" + datetime + "][" + state + "][" + socket.sid + "] " + e.name + " " + e.data);
 	}
 
 	IEnumerator TestCoroutine()
