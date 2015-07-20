@@ -10,7 +10,7 @@ public class ObjectMoving : MonoBehaviour {
 		//ws://localhost:4567/socket.io/?EIO=4&transport=websocket
 		//GameObject go = GameObject.Find("SocketIO");
 		socket = GameObject.FindObjectOfType<SocketIOComponent>();
-		socket.Connect ();
+		//socket.Connect ();
 
 		socket.On("open", OnSocketOpen);
 		socket.On("error", OnSocketError);
